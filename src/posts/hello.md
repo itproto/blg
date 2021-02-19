@@ -1,5 +1,5 @@
 ---
-title: "Test Post"
+title: "Amazing post"
 path: "/hello"
 date: "2020-02-20"
 coverImage: "../images/hello.jpg"
