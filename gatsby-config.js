@@ -108,6 +108,7 @@ module.exports = {
               noInlineHighlight: false,
             },
           },
+
         ],
       },
     },
@@ -121,6 +122,46 @@ module.exports = {
         theme_color: `#292a2d`,
         display: `minimal-ui`,
         icon: `src/images/hello-icon.png`,
+      },
+
+    },
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-embedded-codesandbox',
+            options: {
+              // Required:
+
+              // Example code folders are relative to this dir.
+              // eg src/_examples/some-example-folder
+              directory: `${__dirname}/src/examples/`,
+
+              // Optional:
+
+              // Custom protocol for parsing the embedding link
+              // default:
+              protocol: 'embedded-codesandbox://',
+
+              // Customise CodeSandbox embedding options:
+              // https://codesandbox.io/docs/embedding#embed-options
+              // default:
+              embedOptions: {
+                editorsize: 100,
+                hidenavigation: 1,
+                view: 'editor',
+              },
+
+              // Customise the embedding iframe given the generated url
+              // default:
+              getIframe: url => `<iframe src="${url}" class="embedded-codesandbox" 
+              style="width:100%;height:15rem"
+              sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>`,
+            },
+
+          },
+        ],
       },
     },
   ],
